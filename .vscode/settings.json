@@ -1,0 +1,11 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "NovaMarket",
+            "database": "${workspaceFolder:SQL}/novamarket_v3.db"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
+}
