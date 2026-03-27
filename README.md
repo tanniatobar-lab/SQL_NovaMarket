@@ -54,6 +54,7 @@ Si necesitas compartir este material con tus estudiantes, sigue estos pasos:
     👉 `https://github.com/edwardzd/SQL_NovaMarket`
 2.  **Instrucciones de Descarga:**
     - Indícales que hagan clic en el botón verde **"Code"** y luego en **"Download ZIP"**.
-    - O bien, que usen `git clone https://github.com/edwardzd/SQL_NovaMarket.git`.
+    - O bien, si tienen Git instalado, que abran la **Terminal** (Mac/Linux) o **Símbolo del Sistema / PowerShell** (Windows) y escriban:
+      `git clone https://github.com/edwardzd/SQL_NovaMarket.git`
 3.  **Primer Paso:** Recuérdales que deben empezar leyendo la **[Guía de Configuración del Entorno](file:///Users/macbookpro/Developer/Learning/SQL/GUIA_CONFIGURACION_ENTORNO.md)** para que Antigravity funcione correctamente en sus equipos.
 4.  **Actualizaciones:** Si realizas cambios en clase o en el script de carga, recuerda ejecutar `git push` para que los estudiantes vean la última versión al descargar/clonar.
