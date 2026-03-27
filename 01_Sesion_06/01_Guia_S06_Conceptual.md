@@ -12,9 +12,13 @@
 |---|---|
 | Sesión | 6 — El Contrato con los Datos |
 | Proceso analítico | **MODELAR** — el modelo relacional como sistema de reglas que los datos deben cumplir |
-| Herramienta | DB Fiddle: dbfiddle.uk → seleccionar **MySQL 8.0** |
-| Archivo de referencia | `S06_Practica_DB_Fiddle.sql` — úsalo solo si te bloqueas completamente; intenta primero por tu cuenta |
-| Entregable | URL de tu sesión en DB Fiddle con los 4 bloques ejecutados y los errores capturados como comentarios |
+| Herramienta | **Opción A:** [dbfiddle.uk](https://dbfiddle.uk) (MySQL 8.0) |
+| Archivo Lab Local | `02_Guia_S06_Antigravity.md` (Si usas VS Code) |
+| Entregable | URL de DB Fiddle **O** el archivo `03_Laboratorio_S06.sql` con tus respuestas |
+
+> [!TIP]
+> **¿Prefieres trabajar localmente en VS Code?**
+> Sigue la guía específica en: [02_Guia_S06_Antigravity.md](file:///Users/macbookpro/Developer/Learning/SQL/01_Sesion_06/02_Guia_S06_Antigravity.md) para una experiencia fluida con SQLite.
 
 > **Tu misión hoy:** ¿Qué habría pasado si los datos de NovaMarket hubieran vivido en una base de datos relacional desde el principio?
 >
@@ -48,11 +52,17 @@
 
 ---
 
-## Verificación inicial — Antes de empezar
+## Verificación inicial — Escoge tu entorno
 
-1. Abre el navegador y ve a: **dbfiddle.uk**
-2. En el menú desplegable selecciona **MySQL 8.0** (no 8.4 — tiene un bug visual)
-3. Borra cualquier texto de ejemplo del panel izquierdo
+### Opción A — En la Web (Rápido)
+1. Ve a: [dbfiddle.uk](https://dbfiddle.uk)
+2. Selecciona **MySQL 8.0**.
+3. Sigue los bloques A, B, C y D directamente en la página.
+
+### Opción B — Local en VS Code (Recomendado)
+1. Sigue los pasos de la **[🚀 Guía de Ejecución]** al final de este documento para crear tu base de datos local.
+2. Abre el archivo `02_Laboratorio_S06.sql`.
+3. Ejecuta los bloques A, B, C y D desde VS Code.
 
 ---
 
@@ -63,13 +73,12 @@
 Escríbelo tú (no lo pegues):
 
 ```sql
--- SQL ignora los comentarios — los dos guiones (--) al inicio son comentario
-
+-- ⚠️ SOLO SI USAS DB FIDDLE (MySQL):
 CREATE DATABASE novamarket;
 USE novamarket;
 
--- CREATE DATABASE = crea el archivo que guardará todas las tablas
--- USE = activa esa base de datos para que los siguientes comandos vivan ahí
+-- 💡 SI USAS SQLITE (Local):
+-- No necesitas estos comandos, ya creaste el archivo .db en el paso anterior.
 ```
 
 Presiona **Ctrl+Enter** (o el botón Run) para ejecutar.
@@ -112,8 +121,13 @@ CREATE TABLE DimProducto (
 Luego verifica:
 
 ```sql
-SHOW TABLES;          -- ¿qué tablas tiene la base de datos?
-DESCRIBE DimProducto; -- ¿cuáles son las cláusulas del contrato?
+-- Para ver si la tabla existe:
+-- En MySQL: SHOW TABLES;
+-- En SQLite: .tables (en terminal) o haz un SELECT a la tabla.
+
+-- Para ver las columnas y reglas (el contrato):
+-- En MySQL: DESCRIBE DimProducto;
+-- En SQLite: PRAGMA table_info('DimProducto');
 ```
 
 | Pregunta | Tu respuesta |
@@ -211,7 +225,7 @@ Escribe el `CREATE TABLE DimCiudad` tú mismo (sin mirar el archivo de referenci
 
 ```
 
-Verifica con `DESCRIBE DimCiudad`.
+Verifica con `DESCRIBE DimCiudad` (MySQL) o `PRAGMA table_info('DimCiudad')` (SQLite).
 
 ### Paso 8 — Insertar las 6 ciudades
 
@@ -314,40 +328,11 @@ INSERT INTO FactVentas_Demo VALUES (9001, 99, 2);
 En S6 firmaste el contrato con dos tablas pequeñas. En S7 trabajarás con la **BD completa de NovaMarket**: 500 transacciones reales de Sep–Nov 2023. La primera consulta que escribirás responde la pregunta que el CEO necesita: ¿cuánto perdió Leticia?
 
 ---
-*Sesión 6 | El Contrato con los Datos | NovaMarket Tech | Análisis de Datos para la Toma de Decisiones*
-# 🚀 Guía de Ejecución: Sesión 6 (Antigravity)
+## Siguiente Paso: ¡A practicar!
 
-Esta guía te explica **cómo realizar** la práctica de "El Contrato con los Datos" dentro de VS Code.
-
-## 1. Preparar la Base de Datos
-En SQLite, trabajamos sobre archivos. Sigue estos pasos en tu **Terminal**:
-
-1.  Asegúrate de estar en la carpeta del curso.
-2.  Crea tu base de datos de trabajo para hoy:
-    ```bash
-    sqlite3 01_Base_Datos_S06.db
-    ```
-3.  Sal de la terminal de SQLite con `.exit` para seguir trabajando.
-
-## 2. Redactar el Contrato (Script SQL)
-Abre el archivo `01_Practica_SQL_S06.sql`. Aquí es donde escribirás tus comandos.
-
-1.  **Crear la tabla:** Selecciona el bloque de `CREATE TABLE DimProducto` y presiona `Cmd + E`.
-2.  **Verificar:** Para ver si la tabla se creó, ejecuta:
-    ```sql
-    PRAGMA table_info('DimProducto');
-    ```
-
-## 3. Probar las Reglas
-El objetivo de hoy es que veas cómo el sistema rechaza errores comunes:
-
--   **Prueba de Duplicados:** Ejecuta dos veces el mismo `INSERT` con el ID 1.
--   **Prueba de Nulos:** Intenta insertar un producto sin nombre.
-
-> **Uso de Antigravity:** Si un error te confunde, selecciona el mensaje de error rojo y pregúntale a Antigravity: *"Explícame esta restricción de PRIMARY KEY"*.
-
-## 4. Próximos Pasos
-Una vez que domines las dimensiones (Producto y Ciudad), estarás listo para la Sesión 7, donde uniremos estas reglas con 500 filas de ventas reales.
+Si estás usando **DB Fiddle**, continúa con los bloques A-D en la web.
+Si estás usando **VS Code + Antigravity**, abre ahora el archivo:
+👉 **[02_Guia_S06_Antigravity.md](file:///Users/macbookpro/Developer/Learning/SQL/01_Sesion_06/02_Guia_S06_Antigravity.md)**
 
 ---
-*Sesión 06 | Ejecución | NovaMarket Tech*
+*Sesión 6 | El Contrato con los Datos | NovaMarket Tech*

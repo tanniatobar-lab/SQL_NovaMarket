@@ -49,6 +49,28 @@ A veces es más rápido usar la terminal.
 
 ---
 
+## Paso 4.5: Terminal vs SQL — ¿Dónde estoy parado? 📍
+
+Este es el punto donde más errores ocurren. Debes saber si le estás hablando a tu Mac o a la Base de Datos.
+
+| Característica | **Terminal (Shell)** | **Prompt de SQLite** |
+|---|---|---|
+| **Símbolo visual** | `%` o `$` | `sqlite>` |
+| **A quién le hablas** | A tu sistema operativo (macOS) | Al motor de la base de datos |
+| **Comandos clave** | `cd`, `ls`, `rm`, `mkdir` | `SELECT`, `CREATE`, `INSERT` |
+
+### Comandos de Supervivencia (Terminal `%`):
+*   `cd carpeta` → **Entrar** a una carpeta.
+*   `cd ..` → **Salir** una carpeta hacia atrás.
+*   `ls` → **Listar** qué archivos hay aquí.
+*   `rm archivo.db` → **Borrar** un archivo (¡Cuidado!).
+*   `pwd` → **¿Dónde estoy?** Muestra la ruta completa actual.
+
+> [!WARNING]
+> **El gran error:** Nunca intentes usar `cd` o `rm` cuando veas el prompt `sqlite>`. Si te equivocas y te sale el símbolo `... >`, presiona **`Ctrl + C`** para abortar y volver a la terminal normal `%`.
+
+---
+
 ## Paso 5: Trabajando con Antigravity (Tu Mentor IA) 🤖
 Antigravity no solo escribe código por ti, te ayuda a entenderlo.
 

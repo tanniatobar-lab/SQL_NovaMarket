@@ -12,10 +12,9 @@
 |---|---|
 | Sesión | 7 — El Interrogatorio |
 | Proceso analítico | **INTERROGAR** — la calidad de la respuesta depende de la calidad de la pregunta |
-| Herramienta | MySQL Workbench / Antigravity / DB Fiddle (MySQL 8.0) |
-| Prerequisito | BD de S6 cargada. Verificar: `SELECT COUNT(*) FROM FactVentas;` debe retornar **500** |
-| Archivo de práctica | `S07_NovaMarket_Consultas.sql` |
-| Entregable | Archivo `.sql` con los 3 desafíos del Bloque E resueltos y comentados |
+| Herramienta | MySQL Workbench / [dbfiddle.uk](https://dbfiddle.uk) (MySQL 8.0) |
+| Archivo Lab Local | `02_Guia_S07_Antigravity.md` (Si usas VS Code) |
+| Archivo de práctica | `03_Laboratorio_S07.sql` |
 
 > **Tu misión hoy:** En S6 cargaste 500 transacciones de NovaMarket en una base de datos relacional. Hoy las interrogas. Al final de esta sesión habrás escrito más de 20 consultas SQL sobre datos reales — cada una responde una pregunta específica del caso.
 
@@ -391,30 +390,11 @@ En S7 filtraste filas individuales con `WHERE`. En S8 aprenderás a comprimir es
 
 ---
 *Sesión 7 | El Interrogatorio | NovaMarket Tech | Análisis de Datos para la Toma de Decisiones*
-# 🚀 Guía de Ejecución: Sesión 7 (Antigravity)
+---
+## Siguiente Paso: ¡A interrogar los datos!
 
-Esta guía te explica **cómo realizar** el "Interrogatorio" de datos (SELECT y WHERE) usando la base de datos completa de NovaMarket.
-
-## 1. Conexión a la Base de Datos
-Ya hemos preparado una base de datos con 500 transacciones reales para ti.
-
-1.  Abre el explorador de archivos y ve a la carpeta `02_Sesion_07`.
-2.  Verifica que el archivo `02_Base_Datos_S07.db` esté presente.
-3.  **Configurar SQLTools:** Asegúrate de que SQLTools esté apuntando a este archivo `.db` para poder ejecutar consultas con `Cmd + E`.
-
-## 2. Ejecutar las Consultas
-Abre el archivo `02_Consultas_SQL_S07.sql`.
-
-1.  **Bloque A (Exploración):** Ejecuta las primeras líneas para ver las 500 ventas.
-2.  **Bloque B y C (Filtros):** Aprenderás a usar `WHERE` para encontrar ventas en ciudades específicas como Leticia.
-
-## 3. Desafíos Autónomos
-Al final del archivo SQL encontrarás desafíos. Intenta resolverlos tú mismo.
-
-> **Pide ayuda a Antigravity:** Si no sabes cómo filtrar por un rango de fechas, pregúntale: *"@antigravity, ¿cómo uso BETWEEN para filtrar el mes de noviembre de 2023?"*
-
-## 4. Resultado Final
-Al terminar esta guía, habrás respondido preguntas de negocio reales usando SQL puro, sin necesidad de Excel o Power BI.
+Si estás usando la web, continúa con los bloques A-E. Si estás en local con **VS Code**, abre ahora tu guía práctica: 
+👉 **[02_Guia_S07_Antigravity.md](file:///Users/macbookpro/Developer/Learning/SQL/02_Sesion_07/02_Guia_S07_Antigravity.md)**
 
 ---
-*Sesión 07 | Ejecución | NovaMarket Tech*
+*Sesión 7 | El Interrogatorio | NovaMarket Tech*
