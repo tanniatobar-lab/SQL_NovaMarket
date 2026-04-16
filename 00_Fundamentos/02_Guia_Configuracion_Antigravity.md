@@ -7,7 +7,7 @@ Esta guía te permitirá configurar tu entorno profesional de análisis de datos
 ## Paso 0: Identidad y Control (Git) ⚙️
 | Pregunta | Respuesta |
 |---|---|
-| **¿Dónde?** | En la Terminal de VS Code (`Ctrl + ñ`). |
+| **¿Dónde?** | En la Terminal de VS Code (**Carpeta Raíz**). |
 | **¿Qué?** | Instalar Git y configurar tu nombre/correo. |
 | **¿Cuándo?** | **Una sola vez** al inicio del curso. |
 | **¿Por qué?** | Para que tus cambios tengan autoría y el profesor pueda calificar tu trabajo en GitHub. |
@@ -39,7 +39,7 @@ Esta guía te permitirá configurar tu entorno profesional de análisis de datos
 ## Paso 2: El Motor de Datos (Python) 🐍
 | Pregunta | Respuesta |
 |---|---|
-| **¿Dónde?** | En el sitio oficial [python.org](https://www.python.org/downloads/). |
+| **¿Dónde?** | En la Terminal de VS Code (**Cualquier carpeta**). |
 | **¿Qué?** | Instalar Python y las librerías de datos (`pandas`, `openpyxl`). |
 | **¿Cuándo?** | **Una sola vez** antes de ejecutar scripts `.py`. |
 | **¿Por qué?** | Python es el motor que transforma archivos Excel en bases de datos `.db`. |
@@ -68,18 +68,22 @@ Esta guía te permitirá configurar tu entorno profesional de análisis de datos
 | **¿Por qué?** | Para tener tu propio repositorio privado donde subir tus soluciones. |
 
 **Instrucción:**
-1.  En GitHub, presiona el botón **Fork** en el repositorio del profesor.
-2.  Desde TU repositorio creado, copia el enlace y clónalo:
+1.  **Fork:** En GitHub, presiona el botón **Fork** en el repositorio del profesor.
+2.  **Clone:** Desde TU repositorio (el fork), descarga el código a tu PC:
     ```bash
     git clone https://github.com/TU_USUARIO/SQL_NovaMarket.git
+    ```
+3.  **Vincular con el Profesor (Súper importante):** Para recibir material nuevo, dile a tu PC quién es el profesor:
+    ```bash
+    git remote add upstream https://github.com/edwardzd/SQL_NovaMarket.git
     ```
 
 ---
 
-## Paso 4: Ciclo Diario de Trabajo (Sincronización) 🚀
+## Paso 4: Guardar tu Trabajo (Add, Commit & Push) 🚀
 | Pregunta | Respuesta |
 |---|---|
-| **¿Dónde?** | En la Terminal de VS Code. |
+| **¿Dónde?** | En la Terminal de VS Code (**Carpeta Raíz del proyecto**). |
 | **¿Qué?** | Comandos `add`, `commit` y `push`. |
 | **¿Cuándo?** | **Cada vez** que termines un ejercicio o termine la clase. |
 | **¿Por qué?** | Para que tu avance se guarde en la nube y el profesor pueda calificarlo. |
@@ -87,12 +91,25 @@ Esta guía te permitirá configurar tu entorno profesional de análisis de datos
 **Instrucción (El ciclo de 3 pasos):**
 ```bash
 git add .
-git commit -m "Solución Sesión 06 terminada"
+git commit -m "Solución Sesión 07 terminada"
 git push origin main
 ```
 
-> [!TIP]
-> **Para recibir actualizaciones del profesor:** Usa `git pull origin main`. Esto trae material nuevo sin borrar lo que tú ya hiciste.
+---
+
+## Paso 4.5: Recibir Material Nuevo (Sync & Pull) 📥
+| Pregunta | Respuesta |
+|---|---|
+| **¿Dónde?** | En la Terminal de VS Code (**Carpeta Raíz del proyecto**). |
+| **¿Qué?** | Comando `git pull upstream main`. |
+| **¿Cuándo?** | **Al inicio de cada clase** o cuando el profesor avise que hay material nuevo. |
+| **¿Por qué?** | Para descargar guías y laboratorios nuevos directamente del profesor a tu PC. |
+
+**Instrucción:**
+Escribe este comando único para actualizarte:
+```bash
+git pull upstream main
+```
 
 ---
 
@@ -111,10 +128,35 @@ git push origin main
 
 ---
 
+---
+
+## 🧭 Manual de Supervivencia: Navegación en la Terminal
+Si te pierdes o no sabes si estás en la **Raíz**, usa estos comandos "brújula":
+
+| Comando | Acción | Sistema |
+|---|---|---|
+| `pwd` | **¿Dónde estoy?** | Mac, Windows y Linux |
+| `ls` | **¿Qué hay aquí?** | Mac, Windows y Linux |
+| `cd ..` | **Ir hacia atrás** | Mac, Windows y Linux |
+
+> [!NOTE]
+> **Compatibilidad:** Aunque Windows y Mac son diferentes, la terminal de VS Code es inteligente y acepta estos comandos por igual en ambos sistemas.
+
+> [!TIP]
+> **EL TRUCO MAESTRO (Sin códigos):**
+> Si quieres abrir la terminal directamente en una carpeta específica:
+> 1.  En el explorador de VS Code (izquierda), haz **Clic Derecho** sobre la carpeta.
+> 2.  Selecciona **"Open in Integrated Terminal"**.
+> 3.  ¡Listo! Ya estás parado exactamente donde necesitas.
+
+---
+
 ## Resumen de Reglas de Oro ✨
-1.  **Punto y Coma:** Todas las sentencias SQL terminan en `;`.
-2.  **Ruta Absoluta:** Usa siempre "Copy Path" para conectar tu base de datos y evitar errores.
-3.  **Git es Entregable:** Si no haces `push`, el profesor no puede ver tus respuestas.
+1.  **Carpeta Raíz:** Todos los comandos de Git (`push`, `pull`, `commit`) deben ejecutarse estando "parado" en la carpeta principal del proyecto.
+2.  **Punto y Coma:** Todas las sentencias SQL terminan en `;`.
+3.  **Atajos Universales:** Usa `Ctrl + E` (Windows) o `Cmd + E` (Mac) para ejecutar SQL. 
+4.  **Ruta Absoluta:** Usa siempre "Copy Path" para conectar tu base de datos.
+5.  **Git es Entregable:** Si no haces `push`, el profesor no puede ver tus respuestas.
 
 ---
 *Sesión 07 | NovaMarket Tech | Configuración con Antigravity*
