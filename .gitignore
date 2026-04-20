@@ -1,8 +1,13 @@
 # Antigravity - Teacher Solutions Shield
 _Soluciones_Privadas/
 
-# SQLite Databases (optional, keeps students from getting your pre-populated DBs)
+# SQLite Databases
+# 🔒 Por seguridad, ignoramos todas las bases de datos .db por defecto.
 *.db
+
+# ✅ EXCEPCIÓN: Permitimos que los alumnos suban estas bases de datos específicas para calificación.
+!**/01_Base_Datos_S06.db
+!**/Novamarket_S07.db
 
 # OS Files
 .DS_Store
