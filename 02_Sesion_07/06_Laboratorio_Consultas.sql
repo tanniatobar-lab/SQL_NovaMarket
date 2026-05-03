@@ -3,6 +3,7 @@
 -- Guía de Referencia: 02_Guia_S07_Antigravity.md
 -- Base de Datos: Novamarket_S07.db (500 registros)
 -- ═══════════════════════════════════════════════════════════════
+
 -- ══ BLOQUE A — Exploración Inicial ═════════════════════════════
 -- A1: Ver las primeras 10 transacciones de 'FactVentas'.
 -- Éxito: 10 filas.
@@ -17,6 +18,7 @@ FROM FactVentas;
 -- Éxito: 4 filas.
 SELECT *
 FROM DimProducto;
+
 -- ══ BLOQUE B — Columnas y Cálculos ═════════════════════════════
 -- B1: Mostrar TransaccionID, FechaID, Cantidad y Precio_Venta de 'FactVentas'.
 -- Éxito: Verás solo las 4 columnas seleccionadas.
@@ -35,6 +37,7 @@ SELECT TransaccionID,
     ROUND(Precio_Venta * Cantidad * (1 - Descuento_Pct), 2) AS Venta_Neta,
     Costo_Envio -- por si lo necesitas después
 FROM FactVentas;
+
 -- ══ BLOQUE C — Filtros WHERE (La Precisión) ═════════════════════
 -- C1: Ventas realizadas en Leticia (CiudadID = 6).
 -- Éxito: 76 filas.
