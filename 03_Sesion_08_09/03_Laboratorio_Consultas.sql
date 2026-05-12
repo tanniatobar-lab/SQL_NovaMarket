@@ -112,8 +112,11 @@ ORDER BY Margen_Aproximado ASC;
 -- E1: (Fácil) Muestra nombre del producto, categoría y venta neta total de cada producto. Ordena de mayor a menor.
 SELECT p.Producto,
     p.Categoria,
-    SUM(
-        f.Precio_Venta * f.Cantidad * (1 - f.Descuento_Pct)
+    ROUND(
+        SUM(
+            f.Precio_Venta * f.Cantidad * (1 - f.Descuento_Pct)
+        ),
+        2
     ) AS Venta_Neta
 FROM FactVentas f
     INNER JOIN DimProducto p ON f.ProductoID = p.ProductoID
