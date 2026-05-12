@@ -110,11 +110,58 @@ ORDER BY Margen_Aproximado ASC;
 -- Escribe tus consultas debajo de cada enunciado.
 -- ═══════════════════════════════════════════════════════════════
 -- E1: (Fácil) Muestra nombre del producto, categoría y venta neta total de cada producto. Ordena de mayor a menor.
--- [Tu código para E1 aquí]
+SELECT p.Producto,
+    p.Categoria,
+    SUM(
+        f.Precio_Venta * f.Cantidad * (1 - f.Descuento_Pct)
+    ) AS Venta_Neta
+FROM FactVentas f
+    INNER JOIN DimProducto p ON f.ProductoID = p.ProductoID
+GROUP BY p.Producto,
+    p.Categoria
+ORDER BY Venta_Neta DESC;
 -- E2: (Medio) ¿Cuál producto vendió más en Leticia? Usa JOIN + WHERE + GROUP BY.
--- [Tu código para E2 aquí]
+SELECT p.Producto,
+    SUM(f.Cantidad) AS Total_Vendido
+FROM FactVentas f
+    INNER JOIN DimProducto p ON f.ProductoID = p.ProductoID
+    INNER JOIN DimCiudad c ON f.CiudadID = c.CiudadID
+WHERE c.Ciudad = 'Leticia'
+GROUP BY p.Producto
+ORDER BY Total_Vendido DESC
+LIMIT 1;
 -- E3: (Difícil) Reproduce la tabla del dashboard de S4 completa: Ciudad, Ventas, Utilidad, Margen%. Con nombres reales.
--- [Tu código para E3 aquí]
+SELECT c.Ciudad,
+    ROUND(
+        SUM(
+            f.Precio_Venta * f.Cantidad * (1 - f.Descuento_Pct)
+        ),
+        2
+    ) AS Ventas,
+    ROUND(
+        SUM(
+            (
+                f.Precio_Venta * f.Cantidad * (1 - f.Descuento_Pct)
+            ) - f.Costo_Envio
+        ),
+        2
+    ) AS Utilidad,
+    ROUND(
+        (
+            SUM(
+                (
+                    f.Precio_Venta * f.Cantidad * (1 - f.Descuento_Pct)
+                ) - f.Costo_Envio
+            ) / SUM(
+                f.Precio_Venta * f.Cantidad * (1 - f.Descuento_Pct)
+            )
+        ) * 100,
+        2
+    ) AS Margen_Pct
+FROM FactVentas f
+    INNER JOIN DimCiudad c ON f.CiudadID = c.CiudadID
+GROUP BY c.Ciudad
+ORDER BY Ventas DESC;
 -- ═══════════════════════════════════════════════════════════════
 -- ¡Fin de la Unidad 2! Prepárate para Python en la Unidad 3.
 -- ═══════════════════════════════════════════════════════════════
